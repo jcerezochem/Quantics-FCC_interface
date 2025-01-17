@@ -1,0 +1,123 @@
+# /home/javier/CurrentWork/QD_TFG/Quantics2FCC_interface/Tests/op2fcc/Quantics/p4+.inp
+                ### ------- INPUT FILE ------- ###
+
+RUN-SECTION
+name = p4+
+propagate
+auto = twice
+steps
+psi = double
+gridpop
+tfinal= 300.0
+tout=   0.5
+tpsi=   5.0
+end-run-section
+OPERATOR-SECTION
+opname = pyr4+_uncoupled
+end-operator-section
+sbasis-section
+multi-set
+    v10a     =   8,   6
+    v6a      =  14,   8
+    v1       =   5,   4
+    v9a      =   5,   4
+end-sbasis-section
+pbasis-section
+    v10a   HO     40   0.0   1.0   1.0
+    v6a    HO     32   0.0   1.0   1.0
+    v1     HO     16   0.0   1.0   1.0
+    v9a    HO     12   0.0   1.0   1.0
+    el     el      2
+end-pbasis-section
+INTEGRATOR-SECTION
+CMF/var =   0.05 ,  1.0E-5
+BS/spf  =     9 ,   1.0E-5
+SIL/A   =    50 ,   1.0E-5
+end-integrator-section
+INIT_WF-SECTION
+build
+init_state =    1
+    v10a     HO   0.00   0.00   1.0
+    v6a      HO   0.00   0.00   1.0
+    v1       HO   0.00   0.00   1.0
+    v9a      HO   0.00   0.00   1.0
+end-build
+end-init_wf-section
+end-input
+                ### ------ OPERATOR FILE ------ ###
+
+OP_DEFINE-SECTION
+title
+Pyrazine, extended 4-mode model, bi-linear
+end-title
+end-op_define-section
+PARAMETER-SECTION
+w10a  = 0.1139  ,ev
+w6a   = 0.0739  ,ev
+w1    = 0.1258  ,ev
+w9a   = 0.1525  ,ev
+delta =   0.42300 , ev
+kl_6a_s1  =   0.09806 , ev
+kl_1_s1  =   0.05033 , ev
+kl_9a_s1  =   0.14521 , ev
+kl_6a_s2  =  -0.13545 , ev
+kl_1_s2  =   0.17100 , ev
+kl_9a_s2  =   0.03746 , ev
+kq_10a_s1  =  -0.01159 , ev
+kq_6a_s1  =   0.00000 , ev
+kq_1_s1  =   0.00000 , ev
+kq_9a_s1  =  0.00000 , ev
+kq_10a_s2  =  -0.01159 , ev
+kq_6a_s2  =  0.00000 , ev
+kq_1_s2  =   0.00000 , ev
+kq_9a_s2  =   0.00000 , ev
+kb_6ax1_s1  =   0.00108 , ev
+kb_1x9a_s1  =  -0.00474 , ev
+kb_6ax9a_s1  =   0.00204 , ev
+kb_6ax1_s2  =  -0.00298 , ev
+kb_1x9a_s2  =  -0.00155 , ev
+kb_6ax9a_s2  =   0.00189 , ev
+lambda =   0.00000 , ev
+kb_1x10a  =   0.00000 , ev
+kb_6ax10a  =  0.00000 , ev
+kb_9ax10a  =   0.00000 , ev
+end-parameter-section
+HAMILTONIAN-SECTION
+    modes       |  el  | v10a  | v6a  | v1  | v9a
+1.0*w10a        |2  KE
+1.0*w6a         |3  KE
+1.0*w1          |4  KE
+1.0*w9a         |5  KE
+0.5*w10a        |2  q^2
+0.5*w6a         |3  q^2
+0.5*w1          |4  q^2
+0.5*w9a         |5  q^2
+-delta          |1 S1&1
+delta           |1 S2&2
+kl_6a_s1            |1 S1&1  |3 q
+kl_1_s1             |1 S1&1  |4 q
+kl_9a_s1            |1 S1&1  |5 q
+kl_6a_s2            |1 S2&2  |3 q
+kl_1_s2             |1 S2&2  |4 q
+kl_9a_s2            |1 S2&2  |5 q
+kq_10a_s1           |1 S1&1  |2  q^2
+kq_6a_s1            |1 S1&1  |3  q^2
+kq_1_s1             |1 S1&1  |4  q^2
+kq_9a_s1            |1 S1&1  |5  q^2
+kq_10a_s2           |1 S2&2  |2  q^2
+kq_6a_s2            |1 S2&2  |3  q^2
+kq_1_s2             |1 S2&2  |4  q^2
+kq_9a_s2            |1 S2&2  |5  q^2
+2.0*kb_6ax1_s1      |1 S1&1  |3  q  |4  q
+2.0*kb_6ax9a_s1     |1 S1&1  |3  q  |5  q
+2.0*kb_1x9a_s1      |1 S1&1  |4  q  |5  q
+2.0*kb_6ax1_s2      |1 S2&2  |3  q  |4  q
+2.0*kb_6ax9a_s2     |1 S2&2  |3  q  |5  q
+2.0*kb_1x9a_s2      |1 S2&2  |4  q  |5  q
+2.0*kb_6ax10a       |1 S1&2  |2  q  |3  q
+2.0*kb_1x10a        |1 S1&2  |2  q  |4  q
+2.0*kb_9ax10a       |1 S1&2  |2  q  |5  q
+end-hamiltonian-section
+end-operator
+
+#******************************************************************************#

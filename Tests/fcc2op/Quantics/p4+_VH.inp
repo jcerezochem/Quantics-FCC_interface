@@ -1,0 +1,57 @@
+#######################################################################         
+###           Extended Pyrazine, 4 modes
+#######################################################################         
+
+RUN-SECTION                                                                     
+
+name = p4+
+propagate
+auto = twice                                                             
+steps                                                                           
+psi = double                               
+gridpop                                                                             
+
+tfinal= 300.0                                                                  
+tout=   0.5                                                                     
+tpsi=   5.0                                                                     
+
+end-run-section                                                                 
+                                                                                
+OPERATOR-SECTION                                                                
+opname = ../oper
+end-operator-section                                                            
+                                                                                
+                                                                                
+sbasis-section                                                                  
+multi-set                                                      
+    v001     =   8,   6
+    v002     =  14,   8
+    v003     =   5,   4
+    v004     =   5,   4
+end-sbasis-section                                                              
+
+pbasis-section                                                              
+    v001   HO     40   0.0   1.0   1.0              
+    v002   HO     32   0.0   1.0   1.0              
+    v003   HO     16   0.0   1.0   1.0              
+    v004   HO     12   0.0   1.0   1.0                      
+    el     el      2
+end-pbasis-section                                                               
+                                                                                
+INTEGRATOR-SECTION                                                              
+CMF/var =   0.05 ,  1.0E-5                                               
+BS/spf  =     9 ,   1.0E-5                                                  
+SIL/A   =    50 ,   1.0E-5                                                  
+end-integrator-section                                                          
+                                                                                
+INIT_WF-SECTION                                                                 
+build                                                                           
+init_state =    1                                                               
+    v001     HO   0.00   0.00   1.0   
+    v002     HO   0.00   0.00   1.0   
+    v003     HO   0.00   0.00   1.0   
+    v004     HO   0.00   0.00   1.0   
+end-build                                                                       
+end-init_wf-section                                                             
+                                                                                
+end-input                                                                       

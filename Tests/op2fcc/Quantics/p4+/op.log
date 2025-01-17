@@ -1,0 +1,207 @@
+
+******* Array-Dimensions *******
+
+ k   :  maxkoe      47
+ h   :  maxhtm      63
+ hl  :  maxhop      40
+ nh  :  maxfac      10
+ n   :  maxdef       0
+ n   :  maxpar      30
+ n   :  maxrdf       1
+ nham:  maxham       1
+ muld: maxmuld      32
+ LMR :  maxLMR     120
+
+***** Operator details *****
+
+ndof   =   5 ,  nmode   =   4
+nopdof =   6 ,  nopmode =   6
+
+feb =  5,  meb =  6,   fpb =  0,  mpb =  0,  mkoe =  5
+leb = F,  lmult = T,  lmulpack = F
+DOF no.    label            mass
+    1       v10a            1.0000
+    2       v6a             1.0000
+    3       v1              1.0000
+    4       v9a             1.0000
+    5       el              1.0000
+- - - - - - - - - - - - - - -
+    6       Koeff           0.0000
+
+Mode     DOFs
+   1    1=v10a    
+   2    2=v6a     
+   3    3=v1      
+   4    4=v9a     
+- - - - - - - - - - - - - - -
+   5    6=Koeff   
+   6    5=el      
+
+                                            Information for Hamiltonian : system
+
+Total no. of terms      :     24
+No. of correlated terms :      8
+
+No. of uncorrelated terms for mode   1  state  1:     2
+No. of uncorrelated terms for mode   1  state  2:     2
+No. of uncorrelated terms for mode   2  state  1:     2
+No. of uncorrelated terms for mode   2  state  2:     2
+No. of uncorrelated terms for mode   3  state  1:     2
+No. of uncorrelated terms for mode   3  state  2:     2
+No. of uncorrelated terms for mode   4  state  1:     2
+No. of uncorrelated terms for mode   4  state  2:     2
+
+  Parameters  
+PI                      3.141592653590
+w10a                    0.004185748163
+w6a                     0.002715775147
+w1                      0.004623065135
+w9a                     0.005604272123
+delta                   0.015544964643
+kl_6a_s1                0.003603638849
+kl_1_s1                 0.001849593547
+kl_9a_s1                0.005336369541
+kl_6a_s2           -4.977696125154E-03
+kl_1_s2                 0.006284134643
+kl_9a_s2                0.001376629729
+kq_10a_s1          -4.259246813624E-04
+kq_6a_s1            0.000000000000E+00
+kq_1_s1             0.000000000000E+00
+kq_9a_s1            0.000000000000E+00
+kq_10a_s2          -4.259246813624E-04
+kq_6a_s2            0.000000000000E+00
+kq_1_s2             0.000000000000E+00
+kq_9a_s2            0.000000000000E+00
+kb_6ax1_s1              0.000039689271
+kb_1x9a_s1         -1.741918023863E-04
+kb_6ax9a_s1             0.000074968624
+kb_6ax1_s2         -1.095129896859E-04
+kb_1x9a_s2         -5.696145436684E-05
+kb_6ax9a_s2             0.000069456225
+lambda              0.000000000000E+00
+kb_1x10a            0.000000000000E+00
+kb_6ax10a           0.000000000000E+00
+kb_9ax10a           0.000000000000E+00
+
+Number of operators removed =     3,  cutoff = 1.00E-09
+
+  Operator Labels    [hl,hoplab,(deflabel),hopilab,hopfile]
+    hl  Label                       function no.  file no.
+     1  1                                       1       302
+     2  -1                                      2       302
+     3  I                                       1       101
+     4  w10a                                    2       301
+     5  KEdvr                                   5         3
+     6  w6a                                     3       301
+     7  w1                                      4       301
+     8  w9a                                     5       301
+     9  0.5                                     0       301
+    10  q^2                                     3       302
+    11  delta                                   6       301
+    12  S1&1                                   10         3
+    13  S2&2                                   10         3
+    14  kl_6a_s1                                7       301
+    15  q                                       3       302
+    16  kl_1_s1                                 8       301
+    17  kl_9a_s1                                9       301
+    18  kl_6a_s2                               10       301
+    19  kl_1_s2                                11       301
+    20  kl_9a_s2                               12       301
+    21  kq_10a_s1                              13       301
+    22  kq_6a_s1                               14       301
+    23  kq_1_s1                                15       301
+    24  kq_9a_s1                               16       301
+    25  kq_10a_s2                              17       301
+    26  kq_6a_s2                               18       301
+    27  kq_1_s2                                19       301
+    28  kq_9a_s2                               20       301
+    29  2.0                                     0       301
+    30  kb_6ax1_s1                             21       301
+    31  kb_6ax9a_s1                            23       301
+    32  kb_1x9a_s1                             22       301
+    33  kb_6ax1_s2                             24       301
+    34  kb_6ax9a_s2                            26       301
+    35  kb_1x9a_s2                             25       301
+    36  kb_6ax10a                              29       301
+    37  S1&2                                   10         3
+    38  kb_1x10a                               28       301
+    39  kb_9ax10a                              30       301
+    40  S2&1                                   10         3
+ 
+Hamiltonian Operator Terms [h,htmdof,htmadof,htmmode,htmmuld,htmtype,
+                            htmsym,string]
+   No.   f  af   m  md Typ Sym      Term 
+     1   1   1   0   0   1   1    1
+     2   2   2   0   0   1   1    1
+     3   3   3   0   0   1   1    1
+     4   4   4   0   0   1   1    1
+     6   K       0   0   1   1    1
+     7   K       0   0   2   1    1*w10a
+     8   1   1   0   0   8   1    KEdvr
+     9   K       0   0   2   1    1*w6a
+    10   2   2   0   0   8   1    KEdvr
+    11   K       0   0   2   1    1*w1
+    12   3   3   0   0   8   1    KEdvr
+    13   K       0   0   2   1    1*w9a
+    14   4   4   0   0   8   1    KEdvr
+    23   K       0   0   2   1    -1*delta
+    24   5   5   0   0   2   1    S1&1
+    25   K       0   0   2   1    delta
+    26   5   5   0   0   2   1    S2&2
+    28   2   2   0   0   2   1    q
+    30   3   3   0   0   2   1    q
+    32   4   4   0   0   2   1    q
+    44   K       0   0   2   1    2.0*kb_6ax1_s1
+    45   K       0   0   2   1    2.0*kb_6ax9a_s1
+    46   K       0   0   2   1    2.0*kb_1x9a_s1
+    47   K       0   0   2   1    2.0*kb_6ax1_s2
+    48   K       0   0   2   1    2.0*kb_6ax9a_s2
+    49   K       0   0   2   1    2.0*kb_1x9a_s2
+    56   1   1   0   0   2   1    q^2*kq_10a_s1 + q^2*0.5*w10a
+    57   2   2   0   0   2   1    q*kl_6a_s1 + q^2*kq_6a_s1 + q^2*0.5*w6a
+    58   3   3   0   0   2   1    q*kl_1_s1 + q^2*kq_1_s1 + q^2*0.5*w1
+    59   4   4   0   0   2   1    q*kl_9a_s1 + q^2*kq_9a_s1 + q^2*0.5*w9a
+    60   1   1   0   0   2   1    q^2*kq_10a_s2 + q^2*0.5*w10a
+    61   2   2   0   0   2   1    q*kl_6a_s2 + q^2*kq_6a_s2 + q^2*0.5*w6a
+    62   3   3   0   0   2   1    q*kl_1_s2 + q^2*kq_1_s2 + q^2*0.5*w1
+    63   4   4   0   0   2   1    q*kl_9a_s2 + q^2*kq_9a_s2 + q^2*0.5*w9a
+
+Correlated Terms  
+    ki,kf: initial and final el. state.
+    Operator numbers are h=hamilton(f,k))
+         dof order =   K  |   v10a |   v6a |    v1 |   v9a |
+     k  ki  kf KE/PE  
+     1   1   1  PE    23       1       2       3       4
+     2   2   2  PE    25       1       2       3       4
+     3   1   1  PE    44       1      28      30       4
+     4   1   1  PE    45       1      28       3      32
+     5   1   1  PE    46       1       2      30      32
+     6   2   2  PE    47       1      28      30       4
+     7   2   2  PE    48       1      28       3      32
+     8   2   2  PE    49       1       2      30      32
+
+Uncorrelated Terms
+     k   m   s  sym KE/PE   K     Operator
+     9   1   1   1   PE     6   real     56                                                                                           
+    10   1   1   1   KE     7   real      8                                                                                           
+    11   1   2   1   PE     6   real     60                                                                                           
+    12   1   2   1   KE     7   real      8                                                                                           
+    13   2   1   1   PE     6   real     57                                                                                           
+    14   2   1   1   KE     9   real     10                                                                                           
+    15   2   2   1   PE     6   real     61                                                                                           
+    16   2   2   1   KE     9   real     10                                                                                           
+    17   3   1   1   PE     6   real     58                                                                                           
+    18   3   1   1   KE    11   real     12                                                                                           
+    19   3   2   1   PE     6   real     62                                                                                           
+    20   3   2   1   KE    11   real     12                                                                                           
+    21   4   1   1   PE     6   real     59                                                                                           
+    22   4   1   1   KE    13   real     14                                                                                           
+    23   4   2   1   PE     6   real     63                                                                                           
+    24   4   2   1   KE    13   real     14                                                                                           
+The sum of uncorrelated operators is real and Hermitian!
+
+The correlated operator is REAL and HERMITIAN
+The uncorrelated operator is real and Hermitian!
+
+------------------------------------------------------------------------------
+

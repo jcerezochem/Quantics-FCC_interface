@@ -1,0 +1,57 @@
+#######################################################################         
+###           Extended Pyrazine, 4 modes
+#######################################################################         
+
+RUN-SECTION                                                                     
+
+name = p4+
+propagate
+auto = twice                                                             
+steps                                                                           
+psi = double                               
+gridpop                                                                             
+
+tfinal= 300.0                                                                  
+tout=   0.5                                                                     
+tpsi=   5.0                                                                     
+
+end-run-section                                                                 
+                                                                                
+OPERATOR-SECTION                                                                
+opname = pyr4+_uncoupled
+end-operator-section                                                            
+                                                                                
+                                                                                
+sbasis-section                                                                  
+multi-set                                                      
+    v10a     =   8,   6                                                         
+    v6a      =  14,   8                                                         
+    v1       =   5,   4                                                         
+    v9a      =   5,   4                                                         
+end-sbasis-section                                                              
+
+pbasis-section                                                              
+    v10a   HO     40   0.0   1.0   1.0              
+    v6a    HO     32   0.0   1.0   1.0              
+    v1     HO     16   0.0   1.0   1.0              
+    v9a    HO     12   0.0   1.0   1.0                      
+    el     el      2
+end-pbasis-section                                                               
+                                                                                
+INTEGRATOR-SECTION                                                              
+CMF/var =   0.05 ,  1.0E-5                                               
+BS/spf  =     9 ,   1.0E-5                                                  
+SIL/A   =    50 ,   1.0E-5                                                  
+end-integrator-section                                                          
+                                                                                
+INIT_WF-SECTION                                                                 
+build                                                                           
+init_state =    1                                                               
+    v10a     HO   0.00   0.00   1.0   
+    v6a      HO   0.00   0.00   1.0   
+    v1       HO   0.00   0.00   1.0   
+    v9a      HO   0.00   0.00   1.0   
+end-build                                                                       
+end-init_wf-section                                                             
+                                                                                
+end-input                                                                       

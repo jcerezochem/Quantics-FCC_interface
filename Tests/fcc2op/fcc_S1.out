@@ -1,0 +1,603 @@
+ 
+                                                    \ /               
+                                              ..-'''-*-               
+                                              \.-'''\ \               
+      _____ _____      _                             | |              
+     |  ___/  __ \    | |                         __/ /               
+     | |_  | /  \/ ___| | __ _ ___ ___  ___  ___ |_  '.               
+     |  _| | |    / __| |/ _` / __/ __|/ _ \/ __|   `.  \             
+     | |   | \__/\ (__| | (_| \__ \__ \  __/\__ \     \ '.            
+     \_|    \____/\___|_|\__,_|___/___/\___||___/      , |            
+                                                       | |            
+                                                      / ,'            
+                                              -....--'  /             
+                                              `.. __..-'              
+                                                                      
+ ********************************************************* 
+   FCCLASSES3:                                             
+   A code for vibronic simulations                         
+                                                           
+                                                           
+ ********************************************************* 
+
+
+ GIT VERSION INFO
+  Commit id  : v3.0.4-5-g4285a52-dirty
+  Commit date: 2024-11-20 12:49:00 +0100
+
+ CURRENT RUN INFO
+  Date&Time  : 2024-12-13, 18:07:06
+  Input file : fcc_S1.inp
+  Input type : NEW
+
+
+
+ INPUT OPTIONS:
+-------------------------------
+$$$
+;GENERAL OPTIONS:
+; NAT        = (read from structure files)
+NVIB         =   4
+PROPERTY     =   OPA   
+MODEL        =   VH   
+DIPOLE       =   FC   
+DIPDER_COORD =   NORMALMODE1
+TEMP         =     0.00
+DE           =  -0.01554
+BROADFUN     =   GAU  
+HWHM         =   0.0100
+RESOL        =   0.0010  ; (default: HWHM/10)
+METHOD       =   TD   
+ROT          =   1
+SPCMIN       =  (estimated)
+SPCMAX       =  (estimated)
+;CLASSIC SPECTRUM
+CLASSIC      =   YES 
+CLASS_NTRIAL =   1000
+CLASS_PRINT_CONF =  NO
+;VIBRATIONAL ANALYSIS
+NORMALMODES  =   IMPLICIT 
+RM_COORD     =   NONE    
+COORDS       =   CARTESIAN  
+FORCE_REAL   =   NO   
+;INPUT DATA FILES
+STATE1_FILE  =   
+STATE2_FILE  =   
+MASS_FILE    =   
+ELDIP_FILE   =   eldip
+MAGDIP_FILE  =   
+NAC_FILE     =   
+NRCOUP_FILE  =   eldip
+;VERBOSE LEVEL
+VERBOSE      =   1
+  
+-------------------------------
+
+
+NOTE: Vibronic analysis read from external files                                                          
+ 
+
+
+ ==> State 1 <==
+
+
+ Read frequencies for state 1 from file: Freq_S0.dat
+
+
+ ------------------------
+   FREQUENCIES (cm-1)
+ ------------------------
+     1   918.66512
+     2   596.04348
+     3  1014.64506
+     4  1229.99500
+ ------------------------
+
+
+
+ ==> State 2 <==
+
+
+ Read frequencies for state 2 from file: Freq_S1.dat
+
+
+ ------------------------
+   FREQUENCIES (cm-1)
+ ------------------------
+     1  1236.16009
+     2  1007.64611
+     3   595.16190
+     4   819.87357
+ ------------------------
+
+
+ -------------------------------------
+   State2 Gradient (Q1-space) x1e5
+ -------------------------------------
+     1     0.00000
+     2    18.77967
+     3    12.57596
+     4    39.94894
+ -------------------------------------
+
+
+
+
+                 ASSIGNMENTS AND ANALYSIS OF 1 WITH RESPECT TO 2
+ STATE 1                              MODES STATE 2
+IND DEF    FREQUENCY     SHIFT    I21 C21  I22 C22   I23 C23     FR(I21)  I90 I95 I99
+   1  P      918.67     0.00000    4 1.00    2 0.00    3 0.00      98.79   1   1   1
+   2  P      596.04   -24.20759    3 1.00    2 0.00    1 0.00       0.88   1   1   1
+   3  P     1014.65    -6.61446    2 0.97    1 0.03    3 0.00       7.00   1   1   2
+   4  P     1230.00   -12.64202    1 0.97    2 0.03    3 0.00      -6.17   1   1   2
+   
+ *********************************************************** 
+  
+  AVERAGE MAX PROJECTION     0.985287    St Dev   0.014109
+  AVERAGE FREQ DIFF         25.126749    St Dev  40.934376
+  AVERAGE ABS FREQ DIFF     28.209293    St Dev  40.818147
+  AVERAGE ABS DISPLACE     -10.866019    St Dev   8.906429
+  SUM DISPL**2             789.579354
+  
+ *********************************************************** 
+  
+
+
+
+                 ASSIGNMENTS AND ANALYSIS OF 2 WITH RESPECT TO 1
+ STATE 2                              MODES STATE 1
+IND DEF    FREQUENCY     SHIFT    I11 C11  I12 C12   I13 C13     FR(I11)  I90 I95 I99
+   1  P     1236.16    11.87201    4 0.97    3 0.03    2 0.00       6.17   1   1   2
+   2  P     1007.65     9.30047    3 0.97    4 0.03    2 0.00      -7.00   1   1   2
+   3  P      595.16    23.70940    2 1.00    4 0.00    3 0.00      -0.88   1   1   1
+   4  P      819.87     0.00000    1 1.00    2 0.00    3 0.00     -98.79   1   1   1
+   
+ *********************************************************** 
+  
+  AVERAGE MAX PROJECTION     0.985287    St Dev   0.014109
+  AVERAGE FREQ DIFF        -25.126749    St Dev  67.162895
+  AVERAGE ABS FREQ DIFF     28.209293    St Dev  40.818147
+  AVERAGE ABS DISPLACE      11.220473    St Dev   8.455521
+  SUM DISPL**2             789.579354
+  
+ *********************************************************** 
+  
+
+ ADDITIONAL ANALYSIS ON DUSCHINSKY MATRIX
+ ----------------------------------------
+  Determinant:     1.0000
+
+  ** A = GM·GMT **
+  Det(A)     :     1.0000
+  Trace(A)   :     4.0000
+  Det(A-I)   :     0.0000
+  Trace(A-I) :    -0.0000
+ ----------------------------------------
+
+   
+   
+ STATE1 MODES SORTED BY DECREASING DIMENSIONLESS SHIFT
+   IND    MODE    FREQUENCY   DIMENSIONLESS SHIFT
+     1       2     596.04348      -0.12615E+01
+     2       4    1229.99500      -0.94640E+00
+     3       3    1014.64506      -0.44974E+00
+     4       1     918.66512       0.00000E+00
+   
+   
+ MODES OF STATE1 IN ORDER OF DECREASING FR COUPL
+ ESTIMATED BY THE MAGNITUDE OF THE  0-0 INTEGRAL FC(0,0)
+ 1D MODEL WITH THE MODE OF STATE2 WITH LARGEST PROJECTION
+ ONLY FREQ CHANGE (NO DUSCHINSKY NO DISPLACEMENT). WE PRINT OUT 1/FC(0,0)
+    IND   MODE1   FREQ        MODE2      FR           FR. SHIFT        1/FC(0,0)
+     1     1   918.66512         4   819.87357        98.79155         1.00081
+     2     3  1014.64506         2  1007.64611         6.99895         1.00000
+     3     4  1229.99500         1  1236.16009        -6.16509         1.00000
+     4     2   596.04348         3   595.16190         0.88158         1.00000
+   
+   
+   
+   
+ STATE2 MODES SORTED BY DECREASING DIMENSIONLESS SHIFT
+   IND    MODE    FREQUENCY   DIMENSIONLESS SHIFT
+     1       3     595.16190       0.12347E+01
+     2       1    1236.16009       0.89098E+00
+     3       2    1007.64611       0.63018E+00
+     4       4     819.87357       0.00000E+00
+   
+   
+ MODES OF STATE2 IN ORDER OF DECREASING FR COUPL
+ ESTIMATED BY THE MAGNITUDE OF THE  0-0 INTEGRAL FC(0,0)
+ 1D MODEL WITH THE MODE OF STATE1 WITH LARGEST PROJECTION
+ ONLY FREQ CHANGE (NO DUSCHINSKY NO DISPLACEMENT). WE PRINT OUT 1/FC(0,0)
+    IND   MODE2   FREQ        MODE1      FR           FR. SHIFT        1/FC(0,0)
+     1     4   819.87357         1   918.66512       -98.79155         1.00081
+     2     2  1007.64611         3  1014.64506        -6.99895         1.00000
+     3     1  1236.16009         4  1229.99500         6.16509         1.00000
+     4     3   595.16190         2   596.04348        -0.88158         1.00000
+   
+   
+  
+  
+ DIMENSIONLESS SHIFTS 
+   IND     STATE1       STATE2
+     1     0.00000E+00     0.89098E+00
+     2    -0.12615E+01     0.63018E+00
+     3    -0.44974E+00     0.12347E+01
+     4    -0.94640E+00     0.00000E+00
+  SUM SQUARED DIMENSIONLESS DISPL STATE1        2.6894
+  SUM SQUARED DIMENSIONLESS DISPL STATE2        2.7154
+  VALUE STATE1 GROUND VIB WAVEFUN AT GEO2       0.2606
+  VALUE STATE2 GROUND VIB WAVEFUN AT GEO1       0.2573
+  VALUE STATE1 GROUND VIB WAVEFUN AT (GEO1+GEO2)/2      0.7145
+  VALUE STATE2 GROUND VIB WAVEFUN AT (GEO1+GEO2)/2      0.7122
+
+ Printing Duschinski matrix to 'duschinsky.dat'
+
+
+ Printing Shift vector to 'displacement.dat'
+
+
+NOTE: DE read from input:  -0.016 (eV)                                                                    
+ 
+
+
+ ===========================
+  REORGANIZATION ENERGY
+ ===========================
+     0.005214  (Hartree)
+     0.141884  (eV)
+
+
+ ------------------------------------------------------
+ Extrapolation form (generalized) vertical point:
+ ------------------------------------------------------
+ Extrapolated vertical energy:       -0.01554  (eV)
+ Extrapolated adiabatic energy:      -0.01554  (eV)
+ Extrapolated reorg. energy   :       0.00000  (eV)
+ ------------------------------------------------------
+
+
+
+ ===============================
+  ZERO-POINT ENERGY CORRECTIONS 
+ ===============================
+
+
+                    ZERO POINT ENERGY (CM-1)
+    E01=      1879.67    E02=      1829.42
+
+
+                    0-0 ENERGY DIFFERENCE
+      -0.16366 eV
+
+
+                    ADIABATIC ENERGY (DIFFERENCE BETWEEN En AT MINIMA) 
+      -0.15743 eV
+
+
+ Combination abs/ECDNO
+ A standard one-photon absorption calculation  will be performed
+
+
+ ====================
+
+  TRANSITION DIPOLES 
+
+ ====================
+ Model for tr. dipoles: FC
+ Reading electric dipole file: eldip
+ 
+ Tr. dipoles at GEO1 (input geometry)
+Electric:     1.000000    0.000000    0.000000
+Magnetic:     1.000000    0.000000    0.000000
+
+
+ ================= 
+  TRANSITION INFO  
+ ================= 
+            DATA FOR VERTICAL TRANSITION 
+  electric transition dipoles (au) at initial GEO 1
+            1.00000000    0.00000000    0.00000000
+  electric transition dipoles (au) at initial GEO 2
+            1.00000000    0.00000000    0.00000000
+  Square tr dipoles: geo1  1.00000000  geo2   1.00000000  Diff (d1-d2)/d1    0.0000 %
+   
+ ------------------
+  State2 -> State1
+ ------------------
+ Reorganization Energy (eV) on State1        0.139822
+ Vertical emission energy (eV)              -0.297252
+ Fluorescence lifetime from minimum (ns) -3.365459E+04
+ ********************************************** 
+   
+ ------------------
+  State1 -> State2
+ ------------------
+ Reorganization Energy on State2 (eV)        0.141884
+ Vertical absorption energy (eV)            -0.015545
+ Absorption oscillator strength          -5.334923E-04
+ ********************************************** 
+   
+     
+ TRANSITION DIPOLE MOMENTS AT INITIAL-STATE
+  GEOMETRY OBTAINED BY LINEAR INTERPOLATION IN NORMAL COORDINATES
+     
+ ORIGINAL TRANSITION ELECTRIC DIPOLE at GEO1 
+At Geo State 1            1.00000000    0.00000000    0.00000000        1.00000000
+ INTERP. TRANSITION ELECTRIC DIPOLE at GEO1 
+At Geo State 1            1.00000000    0.00000000    0.00000000        1.00000000
+  error component x  0.000000000000000E+000
+  error component y  0.000000000000000E+000
+  error component z  0.000000000000000E+000
+ angle between the two vectors in degrees  0.000000000000000E+000
+  
+ ORIGINAL TRANSITION MAGNETIC DIPOLE at GEO1 
+At Geo State 1            1.00000000    0.00000000    0.00000000        1.00000000
+ INTERP. TRANSITION MAGNETIC DIPOLE at GEO1 
+At Geo State 1            1.00000000    0.00000000    0.00000000        1.00000000
+  error component x  0.000000000000000E+000
+  error component y  0.000000000000000E+000
+  error component z  0.000000000000000E+000
+ angle between the two vectors in degrees  0.000000000000000E+000
+     
+     
+ angle between the interp. elec. and magn. dip   0.000000000000000E+000
+     
+ TRANSITION DIPOLE MOMENTS AT FINAL-STATE
+  GEOMETRY OBTAINED BY LINEAR INTERPOLATION IN NORMAL COORDINATES
+ ORIGINAL TRANSITION ELECTRIC DIPOLE at GEO2 
+At Geo State 2            1.00000000    0.00000000    0.00000000        1.00000000
+ INTERP. TRANSITION ELECTRIC DIPOLE at GEO2 
+At Geo State 2            1.00000000    0.00000000    0.00000000        1.00000000
+  error component x  0.000000000000000E+000
+  error component y  0.000000000000000E+000
+  error component z  0.000000000000000E+000
+ angle between the two vectors in degrees  0.000000000000000E+000
+  
+ ORIGINAL TRANSITION MAGNETIC DIPOLE at GEO2 
+At Geo State 2            1.00000000    0.00000000    0.00000000        1.00000000
+ INTERP. TRANSITION MAGNETIC DIPOLE at GEO2 
+At Geo State 2            1.00000000    0.00000000    0.00000000        1.00000000
+  error component x  0.000000000000000E+000
+  error component y  0.000000000000000E+000
+  error component z  0.000000000000000E+000
+ angle between the two vectors in degrees  0.000000000000000E+000
+     
+     
+ angle between the interp. elec. and magn. dip   0.000000000000000E+000
+ IF RUNNING ABS/EMI THEN IN SUBSEQUENT EMI/ABS CALCULATION
+ USE THE INTERPOLATED VALUES AT GEO2/GEO1LIKE INITIAL-STATE DATA
+ TO OBTAIN COHERENT HERZBERG-TELLER RESULTS
+ WITH HTi OPTION
+  FINAL STATE DIP0 AND DIPM0 ACTUALLY USED IN CALCULATIONS
+  dip0(1)=  1.0000000    dipm0(1)=  1.0000000
+  dip0(2)=  0.0000000    dipm0(2)=  0.0000000
+  dip0(3)=  0.0000000    dipm0(3)=  0.0000000
+ FC part of total intensity   1.00000000000000     
+ TOTAL INTENSITY 0K   1.00000000000000     
+    
+    
+ CHECK TOTAL INTENSITY RECOMPUTING DIPq1 from dipq2
+ TR DIPOLE DERIVATIVES IN NORMAL COORDINATES STATE1
+
+
+ FC(GEO1 from input) contribution to total Intensity   1.00000000000000     
+   
+   
+ TOTAL INTENSITY 0K final estimate   1.00000000000000     
+      
+ *******************************************
+ GENERALIZED OSC. STRENGTH INCLUDING HT EFFECT  -5.334923246105461E-004
+ ***********************************************
+ ANALYTICAL MOMENTS OF THE SPECTRUM
+ ZERO-TH MOMENT
+ FC zeroth moment   1.00000000000000     
+ FCHT zeroth moment T=0K   1.00000000000000     
+ FCHT zeroth moment input T   1.00000000000000     
+ 
+ FIRST MOMENT
+  FC component (eV)   -2.133996505839119E-002
+  FC-HT component (eV)    0.000000000000000E+000
+  HT component (eV)    0.000000000000000E+000
+  FIRST MOMENT (eV)   -2.133996505839119E-002
+    
+  FC VARIANCE (eV**2)    1.661741771396721E-002
+  FC Gradient contr.    (eV**2)    1.661740830000000E-002
+  FC Freq. shift contr. (eV**2)    9.413967213792780E-009
+  FC Duschinsky  contr. (eV**2)    0.000000000000000E+000
+  FWHM (eV)  0.303556469034982     
+  FWHM (cm-1)   2448.34833732741     
+ ***********************************************
+  
+  
+
+NOTE: Spectra resolution set to:  0.00100                                                                 
+ 
+
+NOTE: Initial energy of exported spectrum (en0) estimated:  -0.6637                                       
+ 
+
+NOTE: Final energy of exported spectrum (enfin) estimated:   3.3363                                       
+ 
+
+NOTE: To ensure exact match of TI and TD results, final spectral range reset to:   -0.6637-               
+           3.3363(eV)                                                                                     
+ 
+
+ ----------------------------------------
+ Refined spectral range for simulations: 
+  nene       =      4001
+  From E(eV) =   -0.6637
+  To   E(eV) =    3.3363
+ 
+  Ead (eV)   =      -0.1574
+  E00 (eV)   =      -0.1637
+ 
+ Related time-domain parameters
+ (with extended range):
+  ntime        =         2102
+  dt           =       0.9837
+  tfin         =    2067.3418
+  dE_extra(eV) =       0.1010
+ ----------------------------------------
+
+    
+    
+    
+    
+  ---------------------------------------
+  CLASSICAL APPROXIMATION OF THE SPECTRUM
+ DIPTOT   1.00000000000000     
+ number of classical bins         160   3.33634022169538     
+ -0.663659778304620       2.500000000000000E-002
+ boltz  0.000000000000000E+000
+ test tanh  0.761594155955765     
+   
+   
+  INDEX   FREQ      ST.DEV(Boltz)   ST DEV.(Wigner)
+     1   918.665          0.0000         10.9295
+     2   596.043          0.0000         13.5687
+     3  1014.645          0.0000         10.3997
+     4  1229.995          0.0000          9.4455
+ check average and standard deviation
+ average -7.566105281535892E-003
+ standard deviation   1.00622733398436     
+    
+    
+    
+    
+  SUMMARY CLASSICAL SPECTRUM: BOLTZMANN DISTRIBUTION
+ Sum gradient terms   2178681.30218895     
+ Average energy on initial state eV  0.000000000000000E+000
+ Average energy on each initial osc cm-1  0.000000000000000E+000
+ Average energy on final state eV -1.554496446196462E-002
+    
+ Average transition energy  eV  1.554496446196462E-002
+ Variance transition energy eV**2  8.292332116802292E-032
+ Standard deviation transition energy eV  2.879640970121500E-016
+ First moment  eV  1.554496446196438E-002
+ Second moment  eV**2  2.416459201237314E-004
+ Variance clas spectrum eV**2 -4.282598581317743E-018
+ Standard deviation clas spec eV                     NaN
+    
+ gradient factor average   2178.68130218895     
+ gradient factor st deviation  4.047251422889531E-011
+ gradient factor minimum   2178.68130218899     
+ gradient factor maxiumu   2178.68130218899     
+    
+ average position and st. deviation for each mode
+       1        0.00000000          0.000000
+       2        0.00000000          0.000000
+       3        0.00000000          0.000000
+       4        0.00000000          0.000000
+ average energy for each osc cm-1 on I and F states
+  MODE      FREQ        FREQ/4        EN INITIAL  
+    EN FINAL GRAD   EN FINAL HESS   EN FINAL TOT
+     1            918.6651            229.6663            0.0000            0.0000            0.0000            0.0000
+     2            596.0435            149.0109            0.0000            0.0000            0.0000            0.0000
+     3           1014.6451            253.6613            0.0000            0.0000            0.0000            0.0000
+     4           1229.9950            307.4988            0.0000            0.0000            0.0000            0.0000
+    
+    
+    
+    
+  SUMMARY CLASSICAL SPECTRUM: WIGNER DISTRIBUTION
+ Sum gradient terms   2167626.51403515     
+ Average energy on initial state eV  0.119331413554001     
+ Average energy on each initial osc cm-1   240.618219152659     
+ Average energy on final state eV  0.100139768272489     
+    
+ Average transition energy  eV  0.105638653501249     
+ Variance transition energy eV**2  6.064885309327616E-003
+ Standard deviation transition energy eV  7.787737353896584E-002
+ First moment  eV  0.105436326838306     
+ Second moment  eV**2  1.714967688930981E-002
+ Variance clas spectrum eV**2  6.032857872155718E-003
+ Standard deviation clas spec eV  7.767147399242348E-002
+    
+ gradient factor average   2167.62651403515     
+ gradient factor st deviation   82.9862633131210     
+ gradient factor minimum   1936.22049303977     
+ gradient factor maxiumu   2466.23074885734     
+    
+ average position and st. deviation for each mode
+       1        0.30882781         10.870721
+       2        0.46106399         13.559615
+       3       -0.44641639         10.742003
+       4        0.11807443          9.572480
+ average energy for each osc cm-1 on I and F states
+  MODE      FREQ        FREQ/4        EN INITIAL  
+    EN FINAL GRAD   EN FINAL HESS   EN FINAL TOT
+     1            918.6651            229.6663          227.2044            0.0000          180.9656          180.9656
+     2            596.0435            149.0109          148.8114           19.0035          148.7111          167.7146
+     3           1014.6451            253.6613          270.6353          -12.3216          270.4438          258.1222
+     4           1229.9950            307.4988          315.8212           10.3525          315.9049          326.2574
+ iverif           3
+
+NOTE: To ensure exact match of TI and TD results, final spectral range reset to:   -0.6637-               
+           3.3363(eV)                                                                                     
+ 
+
+
+ ____________________________________________
+  ============================================
+  PROGRAM: td_onephoton
+   Compute vibronic spectra with a harmonic 
+   TD formulation                           
+ ____________________________________________
+  ============================================
+ 
+ SUMMARY OF CALCULATION OPTIONS
+ -------------------------------
+ Adiabatic Energy (eV)  :  -0.1574
+
+ Tipe of transition     : ABS-ECDNO
+
+ Dipole aproximation    : FC-FC
+ El. dipole at ref geom :     1.00        0.00        0.00    
+
+ Numerical evaluation of xi(t)
+         Total time (fs):  2067.342
+         Nr data points : 2102
+         Time step (fs) :  0.984    
+
+ Broad. function        : GAU  
+ Broad. exponent        :    4.871E-08
+ Broad. order           : 2
+ -------------------------------
+
+ Computing correlation functions over 2102 points
+
+ Calling FFT with 4204 points
+
+
+ Entering in fft_calc subroutine (FFTW)
+ Ndata: 4204
+ tini and tfin -2067.342    2067.342
+
+ df  2.417989460082603E-004
+ dt  0.983745795448659     
+ =========== tdspectra finished ===========  
+ Timing...
+  CPU (s) for tdspectra :       0.169
+ ==========================================
+                                           
+
+
+
+===============================
+
+ SUMMARY OF NOTES AND WARNINGS
+
+===============================
+ ---------------------------------
+ 7 notes raised along the run
+ Look for NOTE in the output
+ ---------------------------------
+
+ 
+ ****************** FCclasses finished *******************
+ Timing...   
+  CPU (s)       0.322
+ *********************************************************
+ 

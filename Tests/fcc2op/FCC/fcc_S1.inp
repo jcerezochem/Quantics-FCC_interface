@@ -1,0 +1,20 @@
+$$$
+PROPERTY     =   OPA  ; OPA/EMI/ECD/CPL/RR/TPA/TPCD/MCD/IC
+MODEL        =   VH   ; AS/ASF/AH/VG/VGF/VH
+DIPOLE       =   FC   ; FC/HTi/HTf
+DE           =   -0.015544957651033567; In eV, Required with old state-files
+TEMP         =   0.00 ; (temperature in K)
+BROADFUN     =   GAU  ; GAU/LOR/VOI
+HWHM         =   0.01 ; (broadening width in eV)
+METHOD       =   TD   ; TI/TD
+;VIBRATIONAL ANALYSIS
+NVIB         =   4
+NORMALMODES  =   IMPLICIT   ; COMPUTE/READ/IMPLICIT
+;INPUT DATA FILES
+ELDIP_FILE   =   eldip
+FREQ1_FILE   =   Freq_S0.dat
+FREQ2_FILE   =   Freq_S1.dat
+DUSCH_FILE   =   Dusch_S1.dat
+GRAD2_FILE   =   GradQ_S1.dat
+GRAD2_COORD  =   NORMALMODE1
+
