@@ -205,3 +205,65 @@ print(section, file=fop)
 
 fop.close()
 
+# Generate tentative input
+finp = open('qd.inp','w')
+
+section='''#######################################################################         
+###           Input Quantics
+#######################################################################         
+
+RUN-SECTION                                                                     
+
+name = qd
+propagate
+auto = twice                                                             
+steps                                                                           
+psi = double                               
+gridpop                                                                             
+
+tfinal= 300.0                                                                  
+tout=   0.5                                                                     
+tpsi=   5.0                                                                     
+
+end-run-section                                                                 
+                                                                                
+OPERATOR-SECTION                                                                
+opname = oper
+end-operator-section                                                            
+                                                                                
+sbasis-section                                                                  '''
+print(section, file=finp)
+
+for i in range(nvib):
+    print(f'    v{i+1:03g}   =  10', file=finp)
+print('end-sbasis-section', file=finp)
+print('', file=finp)
+
+print('pbasis-section', file=finp)
+for i in range(nvib):
+    print(f'    v{i+1:03g}   HO   20   0.0   1.0   1.0', file=finp)
+print('end-pbasis-section', file=finp)
+print('', file=finp)
+                                                                                
+section='''INTEGRATOR-SECTION                                                              
+CMF/var =   0.05 ,  1.0E-5                                               
+BS/spf  =     9 ,   1.0E-5                                                  
+SIL/A   =    50 ,   1.0E-5                                                  
+end-integrator-section                                                          
+                                                                                
+INIT_WF-SECTION                                                                 
+build                                                                           
+init_state =    1                                                               '''
+print(section, file=finp)
+
+for i in range(nvib):
+    print(f'    v{i+1:03g}   HO  0.0   0.0   1.0', file=finp)
+section='''end-build                                                                       
+end-init_wf-section                                                             
+                                                                                
+end-input                                                                       
+'''
+print(section, file=finp)
+
+finp.close()
+
