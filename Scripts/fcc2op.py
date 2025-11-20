@@ -79,14 +79,27 @@ if model == 'VG' or model == 'VH':
         line = f.readline()
     gradQ = np.array(gradQ)
     gradq = gradQ / np.sqrt(omega)
-    # Find location of Duschinsky file
-    dusch_file = None
-    for line in f:
-        if 'Printing Duschinski matrix to' in line:
-            dusch_file = line.strip().split()[-1].replace("'","")
 else:
     print('ERROR: only VG and VH models supported')
     sys.exit()
+
+# Now get transition properties
+## Find location of Duschinsky file
+dusch_file = None
+for line in f:
+    if 'Printing Duschinski matrix to' in line:
+        dusch_file = line.strip().split()[-1].replace("'","")
+        break
+## Transition energy (in eV)
+for line in f:
+    if 'Extrapolated vertical energy' in line:
+        DE = float(line.split()[3])
+        break
+# ZPE (in eV)
+for line in f:
+    if ' E01= ' in line:
+        ZPE1,ZPE2 = [float(line.split()[i])/evtown for i in [1,3]]
+
 f.close()
 
 # If VH model, read Dusch file
@@ -125,10 +138,10 @@ omega *= autoev
 for i,w in enumerate(omega):
     print(f'  w{i+1:03g}  =     {w:12.8f}  ,  ev', file=fop)
 
-# Add energy of the state (=0)
-section='''
-# vertical energies and off diag coupling const (if present)
-    delta01_01 =        0.00000000  ,   ev
+# Add energy of the state, which should be DE - ZPE (Quantics sets the Zero at ZPE)
+section=f'''
+# vertical energies (from ZPE) and off diag coupling const (if present)
+    delta01_01 =        {DE-ZPE1}  ,   ev
 
 # linear intrastate parameters'''
 print(section, file=fop)
