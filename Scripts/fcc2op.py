@@ -222,7 +222,13 @@ end-operator
     print(section, file=fop)
 
 def write_input(finp,nvib,integrator='mctdh'):
-    section='''#######################################################################
+
+    if integrator == 'mctdh':
+        auto_twice = '= twice'
+    else:
+        auto_twice = ''
+
+    section=f'''#######################################################################
 ###           Input Quantics
 #######################################################################
 
@@ -230,13 +236,13 @@ RUN-SECTION
 
  name = qd
  propagate
- auto = twice
+ auto {auto_twice}
  steps
  psi = double
  gridpop
 
  tfinal= 300.0
- tout=   0.5
+ tout=   0.2
  tpsi=   5.0
 
 end-run-section
@@ -337,6 +343,6 @@ if __name__ == '__main__':
     # Generate tentative input
     nvib = len(omega)
     finp = open('qd.inp','w')
-    write_input(finp,nvib,integrator='ml')
+    write_input(finp,nvib,integrator='mctdh')
     finp.close()
 
