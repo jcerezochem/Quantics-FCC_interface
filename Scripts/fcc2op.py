@@ -222,12 +222,14 @@ end-operator
     '''
     print(section, file=fop)
 
-def write_input(finp,nvib,integrator='mctdh'):
+def write_input(finp,nel,nprim,integrator='mctdh'):
 
     if integrator == 'mctdh':
         auto_twice = '= twice'
     else:
         auto_twice = ''
+
+    nvib = len(nprim)
 
     section=f'''#######################################################################
 ###           Input Quantics
@@ -261,10 +263,10 @@ sbasis-section                                                                  
     print('', file=finp)
 
     print('pbasis-section', file=finp)
-    for i in range(nvib):
-        print(f'    v{i+1:03g}   HO   20   0.0   1.0   1.0', file=finp)
+    for i,n in enumerate(nprim):
+        print(f'    v{i+1:03g}   HO   {n:2}   0.0   1.0   1.0', file=finp)
     # Set number of states to 2 (even if only one is used to avoid issues)
-    print('    el     el   2', file=finp)
+    print(f'    el     el   {nel:2}', file=finp)
     print('end-pbasis-section', file=finp)
     print('', file=finp)
 
@@ -339,14 +341,24 @@ if __name__ == '__main__':
         Gradq.append(g)
         Hqs.append(h)
 
+    # Estimate number of primitives based on gradient
+    # Set 6 as the minumum value
+    nvib = len(omega)
+    nmax = np.ones(nvib, dtype=int) * 6
+    # Estimate from grad with grad * 1700 (empirical value)
+    for gradq in Gradq:
+        for i,g in enumerate(gradq):
+            n = abs(int(g*1.7e3))
+            nmax[i] = max(nmax[i], n)
+
     # Generate operator
     fop = open(fname_out,'w')
     write_op(fop, omega, Ener, Gradq, Hqs)
     fop.close()
 
     # Generate tentative input
-    nvib = len(omega)
+    nel = max(len(Ener),2) # with 1 electronic state quantics gives error
     finp = open('qd.inp','w')
-    write_input(finp,nvib,integrator='mctdh')
+    write_input(finp,nel,nmax,integrator='mctdh')
     finp.close()
 
