@@ -199,7 +199,7 @@ modes | el'''
     for state,gradq in enumerate(Gradq,1):
         for i,g in enumerate(gradq):
             if np.abs(g) > zero:
-                print(f'K{state:02g}_{state:02g}_{i+1:03g}    |1 S{state}&{state}  |{i+2:<3}  q', file=fop)
+                print(f'KD{state:02g}_{state:02g}_{i+1:03g}    |1 S{state}&{state}  |{i+2:<3}  q', file=fop)
         print('', file=fop)
 
     for state,Hq in enumerate(Hqs,1):
