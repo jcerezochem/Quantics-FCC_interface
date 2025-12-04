@@ -144,11 +144,12 @@ PARAMETER-SECTION
 
     # Print grad in eV
     print('# linear intrastate parameters', file=fop)
-    for state,gradq in enumerate(Gradq):
+    for state,gradq in enumerate(Gradq,1):
         gradq *= autoev
         for i,g in enumerate(gradq):
             if np.abs(g) > zero:
                 print(f'  KD{state:02g}_{state:02g}_{i+1:03g}  =     {g:12.8f}  ,  ev', file=fop)
+        print('', file=fop)
 
     # If VH, then modify ES forces
     for state,Hq in enumerate(Hqs,1):
@@ -328,8 +329,11 @@ if __name__ == '__main__':
 
     # Get data
     omega, Ener, Gradq, Hqs = [], [], [], []
-    for fname in fnames:
+    for i,fname in enumerate(fnames):
         w,e,g,h = get_state_params(fname)
+        if i > 0:
+            if not np.all(np.isclose(w,omega)):
+                print(f'WARNING: file {fname} has different state 1 compared to {fnames[0]}')
         omega = w
         Ener.append(e)
         Gradq.append(g)
